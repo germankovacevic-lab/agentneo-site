@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AgentNeo — AI agents, built with operational rigor</title>
 <meta name="description" content="AgentNeo builds AI agents with operational rigor — and open-sources the safety patterns to run them. Personal AI copilot: single-operator tooling that runs locally and posts on behalf of one human.">
-<link rel="icon" href="./assets/avatar-white.png">
+<link rel="icon" href="./assets/avatar-dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -37,7 +37,12 @@
 
   /* hero */
   header{padding:3.4rem 0 2.5rem}
-  .banner{display:block; width:100%; height:auto; margin-bottom:2.6rem; border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 44px rgba(0,0,0,.4)}
+  .banner{position:relative; margin-bottom:2.6rem; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 12px 44px rgba(0,0,0,.4)}
+  .banner > img{display:block; width:100%; height:auto}
+  .banner-brand{position:absolute; left:clamp(1rem,4.5%,2.4rem); top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:.7rem}
+  .banner-logo{width:clamp(38px,7.5%,58px); height:auto; border-radius:11px; border:1px solid var(--line); background:#10151F; padding:5px}
+  .banner-brand .name{font-family:'Sora',sans-serif; font-weight:700; letter-spacing:-.01em; font-size:clamp(.95rem,2.6vw,1.3rem)}
+  .banner-brand .name b{color:var(--blue)}
   .mark{display:flex; align-items:center; gap:.85rem; margin-bottom:2.6rem}
   .mark img{width:46px; height:46px; border-radius:12px; background:#10151F; padding:6px; border:1px solid var(--line)}
   .mark .name{font-family:'Sora',sans-serif; font-weight:700; letter-spacing:-.01em; font-size:1.18rem}
@@ -95,10 +100,12 @@
 <div class="wrap">
 
   <header>
-    <img class="banner rise d1" src="./assets/banner.png" alt="AgentNeo — Your AI copilot, everywhere you are">
-    <div class="mark rise d1">
-      <img src="./assets/avatar-dark.png" alt="AgentNeo logo">
-      <span class="name">Agent<b>Neo</b></span>
+    <div class="banner rise d1">
+      <img src="./assets/banner.png" alt="AgentNeo — Your AI copilot, everywhere you are">
+      <div class="banner-brand">
+        <img class="banner-logo" src="./assets/avatar-dark.png" alt="AgentNeo logo">
+        <span class="name">Agent<b>Neo</b></span>
+      </div>
     </div>
 
     <div class="eyebrow rise d2">AI agents · operational rigor</div>
