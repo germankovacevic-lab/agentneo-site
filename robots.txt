@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /callback.html
+
+Sitemap: https://agneo.app/sitemap.xml
