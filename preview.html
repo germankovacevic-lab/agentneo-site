@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AgentNeo — preview (FX)</title>
+<meta name="description" content="AgentNeo builds AI agents with operational rigor — and open-sources the safety patterns to run them. Personal AI copilot: single-operator tooling that runs locally and posts on behalf of one human.">
+<link rel="canonical" href="https://agneo.app/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://agneo.app/">
+<meta property="og:title" content="AgentNeo — AI agents, built with operational rigor">
+<meta property="og:description" content="AgentNeo builds AI agents with operational rigor — and open-sources the safety patterns to run them.">
+<meta property="og:image" content="https://agneo.app/assets/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="./assets/avatar-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0D14; --bg-2:#0F131C; --card:#0E131D;
+    --ink:#E9EDF5; --muted:#8A93A6; --faint:#5A6377;
+    --blue:#3A9BE6; --blue-deep:#1B7FC4;
+    --green:#22C55E; --green-soft:rgba(34,197,94,.14);
+    --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.05);
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  /* fx canvas — floating squares that track the cursor */
+  #fx{position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; display:block}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Hanken Grotesk',system-ui,sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 78% -8%, rgba(58,155,230,.16), transparent 60%),
+      radial-gradient(700px 600px at 12% 8%, rgba(27,127,196,.10), transparent 55%),
+      radial-gradient(circle, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:auto,auto,23px 23px;
+    background-attachment:fixed;
+  }
+  .wrap{position:relative; z-index:1; max-width:780px; margin:0 auto; padding:0 1.6rem}
+  a{color:var(--blue); text-decoration:none}
+  a:hover{color:#5FB0EE}
+
+  /* hero */
+  header{padding:3.4rem 0 2.5rem}
+  .banner{position:relative; container-type:inline-size; margin-bottom:2.6rem; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 12px 44px rgba(0,0,0,.4)}
+  .banner > img{display:block; width:100%; height:auto}
+  .banner-brand{position:absolute; left:4.5cqw; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:1.6cqw}
+  .banner-logo{width:clamp(32px,11cqw,86px); height:auto; border-radius:13px; border:1px solid var(--line); background:#10151F; padding:6px}
+  .banner-brand .name{font-family:'Sora',sans-serif; font-weight:700; letter-spacing:-.01em; font-size:clamp(12px,4.1cqw,30px)}
+  .banner-brand .name b{color:var(--blue)}
+  .mark{display:flex; align-items:center; gap:.85rem; margin-bottom:2.6rem}
+  .mark img{width:46px; height:46px; border-radius:12px; background:#10151F; padding:6px; border:1px solid var(--line)}
+  .mark .name{font-family:'Sora',sans-serif; font-weight:700; letter-spacing:-.01em; font-size:1.18rem}
+  .mark .name b{color:var(--blue)}
+  .eyebrow{font-family:var(--mono); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--blue); display:flex; align-items:center; gap:.6rem; margin-bottom:1.4rem}
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--blue); box-shadow:0 0 12px var(--blue)}
+  h1{font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(2.3rem,6vw,3.4rem); line-height:1.04; letter-spacing:-.03em; margin:0 0 1.1rem}
+  h1 .grad{background:linear-gradient(100deg,#fff 20%,var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .lede{font-size:1.16rem; color:#C3CAD8; max-width:60ch; margin:0 0 1.1rem}
+  .compliance{font-family:var(--mono); font-size:.82rem; color:var(--faint); border-left:2px solid var(--line); padding-left:.9rem; max-width:58ch}
+
+  /* divider */
+  .rule{height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent); margin:3.4rem 0}
+
+  /* open source card */
+  .os-eyebrow{font-family:var(--mono); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--green); display:flex; align-items:center; gap:.6rem; margin-bottom:1.1rem}
+  .os-eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 12px var(--green)}
+  .card{
+    position:relative; background:linear-gradient(180deg,var(--card),#0B0F18);
+    border:1px solid var(--line); border-radius:18px; padding:1.9rem 1.9rem 1.7rem; overflow:hidden;
+  }
+  .card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,var(--green),transparent)}
+  .card h2{font-family:'Sora',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:-.02em; margin:.1rem 0 .5rem}
+  .card .tag{font-family:var(--mono); font-size:.74rem; color:var(--green); background:var(--green-soft); border:1px solid rgba(34,197,94,.25); padding:.12rem .5rem; border-radius:6px; vertical-align:middle; margin-left:.5rem; white-space:nowrap}
+  .card p{color:#BFC7D6; margin:.5rem 0}
+  .card .quote{font-family:'Sora',sans-serif; font-weight:600; color:var(--ink); font-size:1.05rem; margin:.2rem 0 1rem}
+
+  .flow{display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin:1.1rem 0 1.3rem; font-family:var(--mono); font-size:.78rem}
+  .chip{padding:.28rem .6rem; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
+  .chip.held{color:#7BE8A6; border-color:rgba(34,197,94,.4); background:var(--green-soft); box-shadow:0 0 18px rgba(34,197,94,.12)}
+  .arr{color:var(--faint)}
+
+  .cmd{font-family:var(--mono); font-size:.84rem; background:#070A10; border:1px solid var(--line); border-radius:10px; padding:.75rem .9rem; color:#CBD3E1; overflow-x:auto; white-space:nowrap}
+  .cmd .p{color:var(--green)}
+  .links{display:flex; flex-wrap:wrap; gap:.65rem; margin-top:1.2rem}
+  .btn{font-family:var(--mono); font-size:.82rem; padding:.5rem .95rem; border-radius:9px; border:1px solid var(--line); color:var(--ink); transition:.18s}
+  .btn:hover{border-color:var(--blue); color:#fff; background:rgba(58,155,230,.08)}
+  .btn.primary{border-color:rgba(34,197,94,.45); color:#D6FBE4}
+  .btn.primary:hover{background:var(--green-soft); border-color:var(--green)}
+
+  /* footer */
+  footer{margin:3.4rem 0 4rem; display:flex; flex-wrap:wrap; gap:1rem 1.6rem; align-items:center; font-size:.9rem; color:var(--muted)}
+  footer a{color:var(--muted)} footer a:hover{color:var(--ink)}
+  footer .dot{width:3px; height:3px; border-radius:50%; background:var(--faint)}
+  footer .mail{font-family:var(--mono); font-size:.82rem; margin-left:auto}
+
+  /* load animation */
+  .rise{opacity:0; transform:translateY(14px); animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1; transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}.d4{animation-delay:.34s}.d5{animation-delay:.46s}
+  @media (prefers-reduced-motion:reduce){.rise{animation:none; opacity:1; transform:none}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="wrap">
+
+  <header>
+    <div class="banner rise d1">
+      <img src="./assets/banner.png" alt="AgentNeo — Your AI copilot, everywhere you are">
+      <div class="banner-brand">
+        <img class="banner-logo" src="./assets/avatar-dark.png" alt="AgentNeo logo">
+        <span class="name">Agent<b>Neo</b></span>
+      </div>
+    </div>
+
+    <div class="eyebrow rise d2">AI agents · operational rigor</div>
+    <h1 class="rise d2">Agents that <span class="grad">actually ship</span>—<br>and ship safely.</h1>
+    <p class="lede rise d3">AgentNeo builds AI agents with the operational rigor of enterprise systems, and open-sources the safety patterns needed to run them in the real world.</p>
+    <p class="compliance rise d3">Personal AI copilot. Single-operator tooling — runs locally, posts on behalf of one human.</p>
+  </header>
+
+  <div class="rule rise d3"></div>
+
+  <section class="rise d4">
+    <div class="os-eyebrow">Open source</div>
+    <div class="card">
+      <h2>Agent Audit Gate <span class="tag">MIT · OpenClaw plugin</span></h2>
+      <p>The safety layer between an AI agent and the strangers it talks to.</p>
+      <p>Put an AI agent on a public channel — a WhatsApp line, a support chat — and it can leak private data or get prompt-injected by anyone who messages it. You can't stop the model from <em>drafting</em> a reply; by then the draft exists.</p>
+      <p class="quote">So instead of sending it, we hold it — and a senior AI agent audits it first.</p>
+      <div class="flow">
+        <span class="chip">inbound</span><span class="arr">→</span>
+        <span class="chip held">held · audited</span><span class="arr">→</span>
+        <span class="chip">released</span>
+      </div>
+      <p>Human-in-the-loop approval gates are well established. The twist: the reviewer is a <b>senior AI agent, not a human</b> — so it scales. Junior drafts, senior approves. Tested live against system-prompt extraction, instruction-repeat, and social-engineering attacks — none got through.</p>
+      <div class="cmd"><span class="p">openclaw</span> plugins install clawhub:agent-audit-gate</div>
+      <div class="links">
+        <a class="btn primary" href="https://github.com/germankovacevic-lab/agent-audit-gate">View on GitHub →</a>
+        <a class="btn" href="https://github.com/germankovacevic-lab/agent-audit-gate#readme">Read the why</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rise d5">
+    <a href="https://www.linkedin.com/company/agentneo/">LinkedIn</a>
+    <span class="dot"></span>
+    <a href="./privacy.html">Privacy</a>
+    <span class="dot"></span>
+    <a href="./terms.html">Terms</a>
+    <span class="mail">german.kovacevic@gmail.com</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var canvas = document.getElementById('fx');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var GREEN = '57,255,20';        // #39FF14 neon
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, particles = [];
+
+  // pointer (start off-screen so nothing clusters until you move)
+  var mouse = { x: -9999, y: -9999, active: false };
+
+  function rand(a, b){ return a + Math.random() * (b - a); }
+
+  function makeParticle(){
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: rand(-0.18, 0.18),
+      vy: rand(-0.18, 0.18),
+      size: rand(3, 7),
+      rot: rand(0, Math.PI),
+      vr: rand(-0.004, 0.004),
+      alpha: rand(0.12, 0.34)
+    };
+  }
+
+  function build(){
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // density scales with area, capped for perf (fewer on mobile)
+    var target = Math.round((W * H) / 16000);
+    target = Math.max(28, Math.min(target, W < 640 ? 55 : 130));
+    particles = [];
+    for(var i = 0; i < target; i++) particles.push(makeParticle());
+  }
+
+  var RADIUS = 200;     // attraction reach
+  var PULL = 0.05;      // attraction strength
+
+  function step(){
+    ctx.clearRect(0, 0, W, H);
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i];
+
+      if(mouse.active){
+        var dx = mouse.x - p.x, dy = mouse.y - p.y;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < RADIUS && dist > 0.01){
+          var f = (1 - dist / RADIUS) * PULL;
+          p.vx += (dx / dist) * f;
+          p.vy += (dy / dist) * f;
+        }
+      }
+
+      // gentle constant drift + damping (creates the lagging trail)
+      p.vx *= 0.94; p.vy *= 0.94;
+      p.vx += rand(-0.01, 0.01);
+      p.vy += rand(-0.01, 0.01);
+      p.x += p.vx; p.y += p.vy;
+      p.rot += p.vr;
+
+      // wrap around edges
+      var m = 20;
+      if(p.x < -m) p.x = W + m; else if(p.x > W + m) p.x = -m;
+      if(p.y < -m) p.y = H + m; else if(p.y > H + m) p.y = -m;
+
+      // brighten as it nears the cursor
+      var a = p.alpha;
+      if(mouse.active){
+        var ddx = mouse.x - p.x, ddy = mouse.y - p.y;
+        var d2 = Math.sqrt(ddx*ddx + ddy*ddy);
+        if(d2 < RADIUS) a = Math.min(0.85, p.alpha + (1 - d2 / RADIUS) * 0.55);
+      }
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = 'rgba(' + GREEN + ',' + a + ')';
+      ctx.fillStyle   = 'rgba(' + GREEN + ',' + a + ')';
+      ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+      ctx.restore();
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  // static render for reduced-motion users
+  function renderStatic(){
+    ctx.clearRect(0, 0, W, H);
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = 'rgba(' + GREEN + ',' + p.alpha + ')';
+      ctx.fillStyle   = 'rgba(' + GREEN + ',' + p.alpha + ')';
+      ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+      ctx.restore();
+    }
+  }
+
+  function onMove(e){
+    var t = e.touches ? e.touches[0] : e;
+    if(!t) return;
+    mouse.x = t.clientX; mouse.y = t.clientY; mouse.active = true;
+  }
+  function onLeave(){ mouse.active = false; }
+
+  var raf, resizeTimer;
+  function init(){
+    build();
+    if(reduce){ renderStatic(); return; }
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('touchmove', onMove, { passive: true });
+    window.addEventListener('mouseleave', onLeave);
+    window.addEventListener('touchend', onLeave);
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(step);
+  }
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      build();
+      if(reduce) renderStatic();
+    }, 200);
+  });
+
+  init();
+})();
+</script>
+</body>
+</html>
