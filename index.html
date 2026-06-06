@@ -27,6 +27,8 @@
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
+  /* fx canvas — floating squares that track the cursor */
+  #fx{position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; display:block}
   body{
     margin:0; background:var(--bg); color:var(--ink);
     font-family:'Hanken Grotesk',system-ui,sans-serif; line-height:1.6;
@@ -38,7 +40,7 @@
     background-size:auto,auto,23px 23px;
     background-attachment:fixed;
   }
-  .wrap{max-width:780px; margin:0 auto; padding:0 1.6rem}
+  .wrap{position:relative; z-index:1; max-width:780px; margin:0 auto; padding:0 1.6rem}
   a{color:var(--blue); text-decoration:none}
   a:hover{color:#5FB0EE}
 
@@ -104,6 +106,7 @@
 </style>
 </head>
 <body>
+<canvas id="fx" aria-hidden="true"></canvas>
 <div class="wrap">
 
   <header>
@@ -154,5 +157,114 @@
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var canvas = document.getElementById('fx');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var GREEN = '57,255,20';        // #39FF14 neon
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, particles = [];
+  var RADIUS = 200, PULL = 0.05;  // cursor reach + attraction strength
+
+  // pointer starts off-screen so nothing clusters until you move
+  var mouse = { x: -9999, y: -9999, active: false };
+
+  function rand(a, b){ return a + Math.random() * (b - a); }
+
+  function makeParticle(){
+    return {
+      x: Math.random() * W, y: Math.random() * H,
+      vx: rand(-0.18, 0.18), vy: rand(-0.18, 0.18),
+      size: rand(3, 7), rot: rand(0, Math.PI), vr: rand(-0.004, 0.004),
+      alpha: rand(0.12, 0.34)
+    };
+  }
+
+  function build(){
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // density scales with area, capped for perf (fewer on mobile)
+    var n = Math.max(28, Math.min(Math.round((W * H) / 16000), W < 640 ? 55 : 130));
+    particles = [];
+    for(var i = 0; i < n; i++) particles.push(makeParticle());
+  }
+
+  function draw(p, a){
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = 'rgba(' + GREEN + ',' + a + ')';
+    ctx.fillStyle = 'rgba(' + GREEN + ',' + a + ')';
+    ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+    ctx.restore();
+  }
+
+  function step(){
+    ctx.clearRect(0, 0, W, H);
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i], a = p.alpha;
+
+      if(mouse.active){
+        var dx = mouse.x - p.x, dy = mouse.y - p.y;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < RADIUS && dist > 0.01){
+          var f = (1 - dist / RADIUS);
+          p.vx += (dx / dist) * f * PULL;
+          p.vy += (dy / dist) * f * PULL;
+          a = Math.min(0.85, p.alpha + f * 0.55);   // brighten near cursor
+        }
+      }
+
+      // gentle drift + damping → the lagging trail
+      p.vx = p.vx * 0.94 + rand(-0.01, 0.01);
+      p.vy = p.vy * 0.94 + rand(-0.01, 0.01);
+      p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+
+      // wrap around edges
+      var m = 20;
+      if(p.x < -m) p.x = W + m; else if(p.x > W + m) p.x = -m;
+      if(p.y < -m) p.y = H + m; else if(p.y > H + m) p.y = -m;
+
+      draw(p, a);
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  function renderStatic(){      // reduced-motion: one frame, no loop
+    ctx.clearRect(0, 0, W, H);
+    for(var i = 0; i < particles.length; i++) draw(particles[i], particles[i].alpha);
+  }
+
+  function onMove(e){
+    var t = e.touches ? e.touches[0] : e;
+    if(t){ mouse.x = t.clientX; mouse.y = t.clientY; mouse.active = true; }
+  }
+  function onLeave(){ mouse.active = false; }
+
+  var raf, resizeTimer;
+  function init(){
+    build();
+    if(reduce){ renderStatic(); return; }
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('touchmove', onMove, { passive: true });
+    window.addEventListener('mouseleave', onLeave);
+    window.addEventListener('touchend', onLeave);
+    raf = requestAnimationFrame(step);
+  }
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){ build(); if(reduce) renderStatic(); }, 200);
+  });
+
+  init();
+})();
+</script>
 </body>
 </html>
