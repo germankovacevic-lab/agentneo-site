@@ -4,19 +4,83 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy Policy — AgentNeo</title>
+<meta name="description" content="How the single-operator tools run under the AgentNeo identity handle data.">
+<link rel="canonical" href="https://agneo.app/privacy.html">
+<link rel="icon" href="./assets/avatar-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  body { font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; max-width: 720px; margin: 3rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.6; }
-  h1 { font-weight: 600; letter-spacing: -0.02em; }
-  h2 { font-weight: 600; margin-top: 2rem; }
-  .meta { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
-  a { color: #1a1a1a; }
-  code { background: #f4f4f5; padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+  :root{
+    --bg:#0A0D14; --card:#0E131D;
+    --ink:#E9EDF5; --muted:#8A93A6; --faint:#5A6377;
+    --blue:#3A9BE6; --blue-deep:#1B7FC4;
+    --line:rgba(255,255,255,.08);
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  /* fx canvas — floating squares that track the cursor (same as home) */
+  #fx{position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; display:block}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Hanken Grotesk',system-ui,sans-serif; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 78% -8%, rgba(58,155,230,.16), transparent 60%),
+      radial-gradient(700px 600px at 12% 8%, rgba(27,127,196,.10), transparent 55%),
+      radial-gradient(circle, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:auto,auto,23px 23px;
+    background-attachment:fixed;
+  }
+  .wrap{position:relative; z-index:1; max-width:720px; margin:0 auto; padding:0 1.6rem}
+  a{color:var(--blue); text-decoration:none}
+  a:hover{color:#5FB0EE}
+
+  .doc-head{padding:2.6rem 0 0}
+  .mark{display:inline-flex; align-items:center; gap:.7rem; margin-bottom:2.4rem}
+  .mark img{width:40px; height:40px; border-radius:11px; background:#10151F; padding:6px; border:1px solid var(--line)}
+  .mark .name{font-family:'Sora',sans-serif; font-weight:700; letter-spacing:-.01em; font-size:1.1rem; color:var(--ink)}
+  .mark .name b{color:var(--blue)}
+
+  h1{font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(2rem,5vw,2.7rem); line-height:1.05; letter-spacing:-.03em; margin:0 0 .6rem; color:var(--ink)}
+  .meta{font-family:var(--mono); color:var(--muted); font-size:.82rem; margin:0 0 2.6rem}
+  h2{font-family:'Sora',sans-serif; font-weight:700; font-size:1.25rem; letter-spacing:-.02em; margin:2.6rem 0 .6rem; color:var(--ink); display:flex; align-items:center; gap:.6rem}
+  h2::before{content:""; width:7px; height:7px; border-radius:2px; background:var(--blue); box-shadow:0 0 12px var(--blue); flex:none}
+  p{color:#C3CAD8; margin:.6rem 0}
+  strong{color:var(--ink); font-weight:600}
+  ul{color:#C3CAD8; padding-left:1.2rem; margin:.6rem 0}
+  li{margin:.4rem 0}
+  code{font-family:var(--mono); background:#070A10; border:1px solid var(--line); padding:.1rem .4rem; border-radius:6px; font-size:.88em; color:#CBD3E1}
+
+  .rule{height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent); margin:3rem 0 0}
+  footer{margin:2.4rem 0 4rem; display:flex; flex-wrap:wrap; gap:1rem 1.6rem; align-items:center; font-size:.9rem; color:var(--muted)}
+  footer a{color:var(--muted)} footer a:hover{color:var(--ink)}
+  footer .dot{width:3px; height:3px; border-radius:50%; background:var(--faint)}
+  footer .mail{font-family:var(--mono); font-size:.82rem; margin-left:auto}
+
+  /* load animation */
+  .rise{opacity:0; transform:translateY(14px); animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1; transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}
+  @media (prefers-reduced-motion:reduce){.rise{animation:none; opacity:1; transform:none}}
 </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p class="meta">AgentNeo · Last updated: 2026-05-04</p>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="wrap">
 
+  <div class="doc-head rise d1">
+    <a class="mark" href="./">
+      <img src="./assets/avatar-dark.png" alt="AgentNeo logo">
+      <span class="name">Agent<b>Neo</b></span>
+    </a>
+  </div>
+
+  <h1 class="rise d2">Privacy Policy</h1>
+  <p class="meta rise d2">AgentNeo · Last updated: 2026-05-04</p>
+
+  <div class="rise d3">
   <p>This privacy policy describes how the personal companion tools operated under the
   <strong>AgentNeo</strong> identity handle data. AgentNeo is a single-operator AI copiloto
   built and run privately by its owner. It is not offered as a service to third parties,
@@ -64,7 +128,125 @@
   <h2>7. Contact</h2>
   <p>Questions about this policy:
   <a href="mailto:hola@agneo.app">hola@agneo.app</a></p>
+  </div>
 
-  <p><a href="./">← Back</a></p>
+  <div class="rule"></div>
+  <footer>
+    <a href="./">← Home</a>
+    <span class="dot"></span>
+    <a href="./terms.html">Terms</a>
+    <a class="mail" href="mailto:hola@agneo.app">hola@agneo.app</a>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var canvas = document.getElementById('fx');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var GREEN = '57,255,20';        // #39FF14 neon
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, particles = [];
+  var RADIUS = 200, PULL = 0.05;  // cursor reach + attraction strength
+
+  // pointer starts off-screen so nothing clusters until you move
+  var mouse = { x: -9999, y: -9999, active: false };
+
+  function rand(a, b){ return a + Math.random() * (b - a); }
+
+  function makeParticle(){
+    return {
+      x: Math.random() * W, y: Math.random() * H,
+      vx: rand(-0.18, 0.18), vy: rand(-0.18, 0.18),
+      size: rand(3, 7), rot: rand(0, Math.PI), vr: rand(-0.004, 0.004),
+      alpha: rand(0.12, 0.34)
+    };
+  }
+
+  function build(){
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // density scales with area, capped for perf (fewer on mobile)
+    var n = Math.max(28, Math.min(Math.round((W * H) / 16000), W < 640 ? 55 : 130));
+    particles = [];
+    for(var i = 0; i < n; i++) particles.push(makeParticle());
+  }
+
+  function draw(p, a){
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = 'rgba(' + GREEN + ',' + a + ')';
+    ctx.fillStyle = 'rgba(' + GREEN + ',' + a + ')';
+    ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+    ctx.restore();
+  }
+
+  function step(){
+    ctx.clearRect(0, 0, W, H);
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i], a = p.alpha;
+
+      if(mouse.active){
+        var dx = mouse.x - p.x, dy = mouse.y - p.y;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < RADIUS && dist > 0.01){
+          var f = (1 - dist / RADIUS);
+          p.vx += (dx / dist) * f * PULL;
+          p.vy += (dy / dist) * f * PULL;
+          a = Math.min(0.85, p.alpha + f * 0.55);   // brighten near cursor
+        }
+      }
+
+      // gentle drift + damping → the lagging trail
+      p.vx = p.vx * 0.94 + rand(-0.01, 0.01);
+      p.vy = p.vy * 0.94 + rand(-0.01, 0.01);
+      p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+
+      // wrap around edges
+      var m = 20;
+      if(p.x < -m) p.x = W + m; else if(p.x > W + m) p.x = -m;
+      if(p.y < -m) p.y = H + m; else if(p.y > H + m) p.y = -m;
+
+      draw(p, a);
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  function renderStatic(){      // reduced-motion: one frame, no loop
+    ctx.clearRect(0, 0, W, H);
+    for(var i = 0; i < particles.length; i++) draw(particles[i], particles[i].alpha);
+  }
+
+  function onMove(e){
+    var t = e.touches ? e.touches[0] : e;
+    if(t){ mouse.x = t.clientX; mouse.y = t.clientY; mouse.active = true; }
+  }
+  function onLeave(){ mouse.active = false; }
+
+  var raf, resizeTimer;
+  function init(){
+    build();
+    if(reduce){ renderStatic(); return; }
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('touchmove', onMove, { passive: true });
+    window.addEventListener('mouseleave', onLeave);
+    window.addEventListener('touchend', onLeave);
+    raf = requestAnimationFrame(step);
+  }
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){ build(); if(reduce) renderStatic(); }, 200);
+  });
+
+  init();
+})();
+</script>
 </body>
 </html>
