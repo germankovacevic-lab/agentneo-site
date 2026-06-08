@@ -92,6 +92,24 @@
   .btn.primary{border-color:rgba(34,197,94,.45); color:#D6FBE4}
   .btn.primary:hover{background:var(--green-soft); border-color:var(--green)}
 
+  /* agents in the wild */
+  .aw-eyebrow{font-family:var(--mono); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--blue); display:flex; align-items:center; gap:.6rem; margin-bottom:1.1rem}
+  .aw-eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--blue); box-shadow:0 0 12px var(--blue)}
+  .agents{display:grid; gap:.9rem}
+  .agent{position:relative; display:flex; align-items:center; justify-content:space-between; gap:1.2rem; background:linear-gradient(180deg,var(--card),#0B0F18); border:1px solid var(--line); border-radius:14px; padding:1.05rem 1.3rem; overflow:hidden; transition:.18s}
+  .agent::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,var(--blue),transparent)}
+  .agent:hover{border-color:var(--blue); transform:translateY(-2px); background:rgba(58,155,230,.06)}
+  .agent .nm{font-family:'Sora',sans-serif; font-weight:700; font-size:1.12rem; letter-spacing:-.01em; margin:0 0 .15rem; color:var(--ink)}
+  .agent .tl{color:#BFC7D6; font-size:.92rem; margin:0}
+  .agent .right{display:flex; align-items:center; gap:.9rem; flex-shrink:0}
+  .badge{font-family:var(--mono); font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; padding:.2rem .55rem; border-radius:6px; white-space:nowrap}
+  .badge.live{color:#7BE8A6; background:var(--green-soft); border:1px solid rgba(34,197,94,.3)}
+  .badge.wait{color:#F5C97B; background:rgba(245,166,35,.12); border:1px solid rgba(245,166,35,.32)}
+  .badge.soon{color:var(--muted); background:rgba(255,255,255,.04); border:1px solid var(--line)}
+  .agent .go{color:var(--faint); font-family:var(--mono); transition:.18s}
+  .agent:hover .go{color:var(--blue)}
+  @media(max-width:520px){ .agent{flex-direction:column; align-items:flex-start; gap:.7rem} .agent .right{align-self:flex-start} }
+
   /* footer */
   footer{margin:3.4rem 0 4rem; display:flex; flex-wrap:wrap; gap:1rem 1.6rem; align-items:center; font-size:.9rem; color:var(--muted)}
   footer a{color:var(--muted)} footer a:hover{color:var(--ink)}
@@ -101,7 +119,7 @@
   /* load animation */
   .rise{opacity:0; transform:translateY(14px); animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
   @keyframes rise{to{opacity:1; transform:none}}
-  .d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}.d4{animation-delay:.34s}.d5{animation-delay:.46s}
+  .d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}.d4{animation-delay:.34s}.d5{animation-delay:.46s}.d6{animation-delay:.58s}
   @media (prefers-reduced-motion:reduce){.rise{animation:none; opacity:1; transform:none}}
 </style>
 </head>
@@ -127,6 +145,35 @@
   <div class="rule rise d3"></div>
 
   <section class="rise d4">
+    <div class="aw-eyebrow">Agents in the wild</div>
+    <div class="agents">
+      <a class="agent" href="https://dame5.app" target="_blank" rel="noopener">
+        <div>
+          <p class="nm">dame5</p>
+          <p class="tl">Turnkey reputation management for local businesses</p>
+        </div>
+        <div class="right"><span class="badge live">Live</span><span class="go">→</span></div>
+      </a>
+      <a class="agent" href="https://despachate.app" target="_blank" rel="noopener">
+        <div>
+          <p class="nm">Despachate</p>
+          <p class="tl">Import-regime comparator with an AI copilot</p>
+        </div>
+        <div class="right"><span class="badge live">Live</span><span class="go">→</span></div>
+      </a>
+      <a class="agent" href="https://reaktiva.app" target="_blank" rel="noopener">
+        <div>
+          <p class="nm">Rea<b style="color:var(--blue)">K</b>tiva</p>
+          <p class="tl">Reactivate your dormant client base on WhatsApp with AI</p>
+        </div>
+        <div class="right"><span class="badge wait">Waitlist</span><span class="go">→</span></div>
+      </a>
+    </div>
+  </section>
+
+  <div class="rule rise d4"></div>
+
+  <section class="rise d5">
     <div class="os-eyebrow">Open source</div>
     <div class="card">
       <h2>Agent Audit Gate <span class="tag">MIT · OpenClaw plugin</span></h2>
@@ -147,7 +194,7 @@
     </div>
   </section>
 
-  <footer class="rise d5">
+  <footer class="rise d6">
     <a href="https://www.linkedin.com/company/agentneo/">LinkedIn</a>
     <span class="dot"></span>
     <a href="./privacy.html">Privacy</a>
