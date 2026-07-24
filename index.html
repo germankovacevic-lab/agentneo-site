@@ -44,6 +44,12 @@
   a{color:var(--blue); text-decoration:none}
   a:hover{color:#5FB0EE}
 
+  /* language toggle */
+  .lang{position:fixed; top:14px; right:14px; z-index:5; display:flex; gap:2px; padding:3px; border:1px solid var(--line); border-radius:999px; background:rgba(14,19,29,.72); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); font-family:var(--mono); font-size:.72rem; box-shadow:0 6px 20px rgba(0,0,0,.35)}
+  .lang button{appearance:none; border:0; background:transparent; color:var(--muted); padding:.28rem .62rem; border-radius:999px; cursor:pointer; letter-spacing:.06em; transition:.15s}
+  .lang button:hover{color:var(--ink)}
+  .lang button.active{background:rgba(58,155,230,.18); color:#CFE6FB}
+
   /* hero */
   header{padding:3.4rem 0 2.5rem}
   .banner{position:relative; container-type:inline-size; margin-bottom:2.6rem; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 12px 44px rgba(0,0,0,.4)}
@@ -129,6 +135,12 @@
 </head>
 <body>
 <canvas id="fx" aria-hidden="true"></canvas>
+
+<div class="lang" role="group" aria-label="Language / Idioma">
+  <button type="button" data-lang="en" aria-label="English">EN</button>
+  <button type="button" data-lang="es" aria-label="Español">ES</button>
+</div>
+
 <div class="wrap">
 
   <header>
@@ -140,60 +152,60 @@
       </div>
     </div>
 
-    <div class="eyebrow rise d2">AI agents · operational rigor</div>
-    <h1 class="rise d2">Agents that <span class="grad">actually ship</span>—<br>and ship safely.</h1>
-    <p class="lede rise d3">AgentNeo builds AI agents with the operational rigor of enterprise systems, and open-sources the safety patterns needed to run them in the real world.</p>
-    <p class="compliance rise d3">Personal AI copilot. Single-operator tooling — runs locally, posts on behalf of one human.</p>
+    <div class="eyebrow rise d2" data-i18n="eyebrow_hero">AI agents · operational rigor</div>
+    <h1 class="rise d2" data-i18n-html="h1">Agents that <span class="grad">actually ship</span>—<br>and ship safely.</h1>
+    <p class="lede rise d3" data-i18n="lede">AgentNeo builds AI agents with the operational rigor of enterprise systems, and open-sources the safety patterns needed to run them in the real world.</p>
+    <p class="compliance rise d3" data-i18n="compliance">Personal AI copilot. Single-operator tooling — runs locally, posts on behalf of one human.</p>
   </header>
 
   <div class="rule rise d3"></div>
 
   <section class="rise d4">
-    <div class="aw-eyebrow">Agents in the wild</div>
+    <div class="aw-eyebrow" data-i18n="aw_eyebrow">Agents in the wild</div>
     <div class="agents">
       <a class="agent" href="https://luzvera.org" target="_blank" rel="noopener">
         <div>
           <p class="nm">Luz Vera</p>
-          <p class="tl">Our most advanced agent — an AI-native creator demystifying agents</p>
+          <p class="tl" data-i18n="tl_luz">Our most advanced agent — an AI-native creator demystifying agents</p>
         </div>
-        <div class="right"><span class="badge live">Live</span><span class="go">→</span></div>
+        <div class="right"><span class="badge live" data-i18n="badge_live">Live</span><span class="go">→</span></div>
       </a>
       <a class="agent" href="https://dame5.app" target="_blank" rel="noopener">
         <div>
           <p class="nm">dame5</p>
-          <p class="tl">Turnkey reputation management for local businesses</p>
+          <p class="tl" data-i18n="tl_dame5">Turnkey reputation management for local businesses</p>
         </div>
-        <div class="right"><span class="badge live">Live</span><span class="go">→</span></div>
+        <div class="right"><span class="badge live" data-i18n="badge_live">Live</span><span class="go">→</span></div>
       </a>
       <a class="agent" href="https://despachate.app" target="_blank" rel="noopener">
         <div>
           <p class="nm">Despachate</p>
-          <p class="tl">Import-regime comparator with an AI copilot</p>
+          <p class="tl" data-i18n="tl_despachate">Import-regime comparator with an AI copilot</p>
         </div>
-        <div class="right"><span class="badge live">Live</span><span class="go">→</span></div>
+        <div class="right"><span class="badge live" data-i18n="badge_live">Live</span><span class="go">→</span></div>
       </a>
       <a class="agent" href="https://ae.net.ar" target="_blank" rel="noopener">
         <div>
           <p class="nm">Agente Educativo</p>
-          <p class="tl">Historical figures that answer in first person — grounded in cited sources, never made up</p>
+          <p class="tl" data-i18n="tl_ae">Historical figures that answer in first person — grounded in cited sources, never made up</p>
         </div>
-        <div class="right"><span class="badge live">Live</span><span class="go">→</span></div>
+        <div class="right"><span class="badge live" data-i18n="badge_live">Live</span><span class="go">→</span></div>
       </a>
       <a class="agent" href="https://reaktiva.app" target="_blank" rel="noopener">
         <div>
           <p class="nm">Rea<b style="color:var(--blue)">K</b>tiva</p>
-          <p class="tl">Reactivate your dormant client base on WhatsApp with AI</p>
+          <p class="tl" data-i18n="tl_reaktiva">Reactivate your dormant client base on WhatsApp with AI</p>
           <span class="cred"><svg class="wa" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.69 8.24-8.23 8.24z"/></svg>Meta Tech Provider · WhatsApp Business Platform</span>
         </div>
-        <div class="right"><span class="badge live">Live</span><span class="go">→</span></div>
+        <div class="right"><span class="badge live" data-i18n="badge_live">Live</span><span class="go">→</span></div>
       </a>
       <a class="agent" href="https://aktivate.com.ar" target="_blank" rel="noopener">
         <div>
           <p class="nm">A<b style="color:var(--blue)">K</b>tivate</p>
-          <p class="tl">Cold-outbound campaign engine — AI that prospects and books on WhatsApp</p>
+          <p class="tl" data-i18n="tl_aktivate">Cold-outbound campaign engine — AI that prospects and books on WhatsApp</p>
           <span class="cred"><svg class="wa" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.69 8.24-8.23 8.24z"/></svg>Meta Tech Provider · WhatsApp Business Platform</span>
         </div>
-        <div class="right"><span class="badge live">Live</span><span class="go">→</span></div>
+        <div class="right"><span class="badge live" data-i18n="badge_live">Live</span><span class="go">→</span></div>
       </a>
     </div>
   </section>
@@ -201,22 +213,22 @@
   <div class="rule rise d4"></div>
 
   <section class="rise d5">
-    <div class="os-eyebrow">Open source</div>
+    <div class="os-eyebrow" data-i18n="os_eyebrow">Open source</div>
     <div class="card">
-      <h2>Agent Audit Gate <span class="tag">MIT · OpenClaw plugin</span></h2>
-      <p>The safety layer between an AI agent and the strangers it talks to.</p>
-      <p>Put an AI agent on a public channel — a WhatsApp line, a support chat — and it can leak private data or get prompt-injected by anyone who messages it. You can't stop the model from <em>drafting</em> a reply; by then the draft exists.</p>
-      <p class="quote">So instead of sending it, we hold it — and a senior AI agent audits it first.</p>
+      <h2>Agent Audit Gate <span class="tag" data-i18n="tag_aag">MIT · OpenClaw plugin</span></h2>
+      <p data-i18n="aag_p1">The safety layer between an AI agent and the strangers it talks to.</p>
+      <p data-i18n-html="aag_p2">Put an AI agent on a public channel — a WhatsApp line, a support chat — and it can leak private data or get prompt-injected by anyone who messages it. You can't stop the model from <em>drafting</em> a reply; by then the draft exists.</p>
+      <p class="quote" data-i18n="aag_quote">So instead of sending it, we hold it — and a senior AI agent audits it first.</p>
       <div class="flow">
-        <span class="chip">inbound</span><span class="arr">→</span>
-        <span class="chip held">held · audited</span><span class="arr">→</span>
-        <span class="chip">released</span>
+        <span class="chip" data-i18n="chip_inbound">inbound</span><span class="arr">→</span>
+        <span class="chip held" data-i18n="chip_held">held · audited</span><span class="arr">→</span>
+        <span class="chip" data-i18n="chip_released">released</span>
       </div>
-      <p>Human-in-the-loop approval gates are well established. The twist: the reviewer is a <b>senior AI agent, not a human</b> — so it scales. Junior drafts, senior approves. Tested live against system-prompt extraction, instruction-repeat, and social-engineering attacks — none got through.</p>
+      <p data-i18n-html="aag_p3">Human-in-the-loop approval gates are well established. The twist: the reviewer is a <b>senior AI agent, not a human</b> — so it scales. Junior drafts, senior approves. Tested live against system-prompt extraction, instruction-repeat, and social-engineering attacks — none got through.</p>
       <div class="cmd"><span class="p">openclaw</span> plugins install clawhub:agent-audit-gate</div>
       <div class="links">
-        <a class="btn primary" href="https://github.com/germankovacevic-lab/agent-audit-gate">View on GitHub →</a>
-        <a class="btn" href="https://github.com/germankovacevic-lab/agent-audit-gate#readme">Read the why</a>
+        <a class="btn primary" href="https://github.com/germankovacevic-lab/agent-audit-gate" data-i18n="btn_github">View on GitHub →</a>
+        <a class="btn" href="https://github.com/germankovacevic-lab/agent-audit-gate#readme" data-i18n="btn_why">Read the why</a>
       </div>
     </div>
   </section>
@@ -224,31 +236,130 @@
   <div class="rule rise d5"></div>
 
   <section class="rise d6">
-    <div class="os-eyebrow">The chassis</div>
+    <div class="os-eyebrow" data-i18n="chassis_eyebrow">The chassis</div>
     <div class="card">
-      <h2>NEO Portable <span class="tag">Model-agnostic · in development</span></h2>
-      <p>The portable runtime our agents are built on — a single, vendor-neutral chassis you run yourself.</p>
-      <p>Most agent runtimes are a thin loop around one vendor's SDK. NEO Portable puts the model behind an interface: the same agent loop has run end-to-end against <b>local and frontier models alike</b> — proven, not claimed. Swap the brain, nothing else changes.</p>
-      <p class="quote">Every tool call passes through a held-by-default gate — nothing runs unless it's explicitly allowed. Safety designed in, not bolted on.</p>
+      <h2>NEO Portable <span class="tag" data-i18n="tag_neo">Model-agnostic · in development</span></h2>
+      <p data-i18n="neo_p1">The portable runtime our agents are built on — a single, vendor-neutral chassis you run yourself.</p>
+      <p data-i18n-html="neo_p2">Most agent runtimes are a thin loop around one vendor's SDK. NEO Portable puts the model behind an interface: the same agent loop has run end-to-end against <b>local and frontier models alike</b> — proven, not claimed. Swap the brain, nothing else changes.</p>
+      <p class="quote" data-i18n="neo_quote">Every tool call passes through a held-by-default gate — nothing runs unless it's explicitly allowed. Safety designed in, not bolted on.</p>
       <div class="flow">
-        <span class="chip">any model</span><span class="arr">→</span>
-        <span class="chip held">held-by-default gate</span><span class="arr">→</span>
-        <span class="chip">runs locally · you own it</span>
+        <span class="chip" data-i18n="chip_anymodel">any model</span><span class="arr">→</span>
+        <span class="chip held" data-i18n="chip_gate">held-by-default gate</span><span class="arr">→</span>
+        <span class="chip" data-i18n="chip_local">runs locally · you own it</span>
       </div>
-      <p>Cheap local models do the leaf work; a frontier model is lit up only when judgment is required — so it runs anywhere you do and costs nothing when idle. The safety membrane is the same pattern we open-source as Agent&nbsp;Audit&nbsp;Gate.</p>
+      <p data-i18n-html="neo_p3">Cheap local models do the leaf work; a frontier model is lit up only when judgment is required — so it runs anywhere you do and costs nothing when idle. The safety membrane is the same pattern we open-source as Agent&nbsp;Audit&nbsp;Gate.</p>
     </div>
   </section>
 
   <footer class="rise d6">
     <a href="https://www.linkedin.com/company/agentneo/">LinkedIn</a>
     <span class="dot"></span>
-    <a href="./privacy.html">Privacy</a>
+    <a href="./privacy.html" data-i18n="foot_privacy">Privacy</a>
     <span class="dot"></span>
-    <a href="./terms.html">Terms</a>
+    <a href="./terms.html" data-i18n="foot_terms">Terms</a>
     <a class="mail" href="mailto:hola@agneo.app">hola@agneo.app</a>
   </footer>
 
 </div>
+
+<script>
+/* i18n — EN is the source in the DOM; ES swaps in. Choice persists; browser lang auto-detected. */
+(function(){
+  var ES = {
+    eyebrow_hero: "Agentes de IA · rigor operacional",
+    h1: 'Agentes que <span class="grad">llegan a producción</span>—<br>y lo hacen de forma segura.',
+    lede: "AgentNeo construye agentes de IA con el rigor operacional de los sistemas empresariales, y libera en código abierto los patrones de seguridad necesarios para operarlos en el mundo real.",
+    compliance: "Copiloto de IA personal. Herramienta de un solo operador — corre local, publica en nombre de una sola persona.",
+    aw_eyebrow: "Agentes en producción",
+    tl_luz: "Nuestro agente más avanzado — una creadora nativa de IA que desmitifica los agentes",
+    tl_dame5: "Gestión de reputación llave en mano para comercios locales",
+    tl_despachate: "Comparador de regímenes de importación con un copiloto de IA",
+    tl_ae: "Figuras históricas que responden en primera persona — con base en fuentes citadas, nunca inventadas",
+    tl_reaktiva: "Reactivá tu base de clientes dormidos por WhatsApp con IA",
+    tl_aktivate: "Motor de campañas de captación en frío — IA que prospecta y agenda por WhatsApp",
+    badge_live: "En vivo",
+    os_eyebrow: "Código abierto",
+    tag_aag: "MIT · plugin de OpenClaw",
+    aag_p1: "La capa de seguridad entre un agente de IA y los desconocidos con los que habla.",
+    aag_p2: "Poné un agente de IA en un canal público — una línea de WhatsApp, un chat de soporte — y puede filtrar datos privados o recibir un prompt-injection de cualquiera que le escriba. No podés impedir que el modelo <em>redacte</em> una respuesta; para entonces el borrador ya existe.",
+    aag_quote: "Así que en lugar de enviarlo, lo retenemos — y un agente de IA senior lo audita primero.",
+    chip_inbound: "entrante",
+    chip_held: "retenido · auditado",
+    chip_released: "liberado",
+    aag_p3: "Los gates de aprobación con un humano en el loop están bien establecidos. La vuelta de tuerca: el revisor es un <b>agente de IA senior, no un humano</b> — así escala. El junior redacta, el senior aprueba. Probado en vivo contra extracción del system-prompt, repetición de instrucciones y ataques de ingeniería social — ninguno pasó.",
+    btn_github: "Ver en GitHub →",
+    btn_why: "Leé el porqué",
+    chassis_eyebrow: "El chasis",
+    tag_neo: "Agnóstico del modelo · en desarrollo",
+    neo_p1: "El runtime portable sobre el que están construidos nuestros agentes — un único chasis, neutral respecto del proveedor, que corrés vos mismo.",
+    neo_p2: "La mayoría de los runtimes de agentes son un loop fino alrededor del SDK de un proveedor. NEO Portable pone al modelo detrás de una interfaz: el mismo loop de agente corrió de punta a punta contra <b>modelos locales y de frontera por igual</b> — probado, no declarado. Cambiás el cerebro, nada más cambia.",
+    neo_quote: "Cada llamada a una herramienta pasa por un gate retenido por defecto — nada se ejecuta salvo que esté explícitamente permitido. Seguridad diseñada desde el arranque, no agregada después.",
+    chip_anymodel: "cualquier modelo",
+    chip_gate: "gate retenido por defecto",
+    chip_local: "corre local · es tuyo",
+    neo_p3: "Los modelos locales baratos hacen el trabajo de hoja; un modelo de frontera se enciende solo cuando se requiere criterio — así corre donde vos corras y no cuesta nada cuando está inactivo. La membrana de seguridad es el mismo patrón que liberamos como Agent&nbsp;Audit&nbsp;Gate.",
+    foot_privacy: "Privacidad",
+    foot_terms: "Términos"
+  };
+  var META_ES = {
+    title: "AgentNeo — Agentes de IA, con rigor operacional",
+    description: "AgentNeo construye agentes de IA con rigor operacional — y libera en código abierto los patrones de seguridad para operarlos. Copiloto de IA personal: herramienta de un solo operador, corre local y publica en nombre de una sola persona.",
+    ogTitle: "AgentNeo — Agentes de IA, con rigor operacional",
+    ogDescription: "AgentNeo construye agentes de IA con rigor operacional — y libera en código abierto los patrones de seguridad para operarlos."
+  };
+
+  function metaEl(sel){ return document.querySelector(sel); }
+  function getMeta(sel){ var el = metaEl(sel); return el ? el.getAttribute('content') : null; }
+  function setMeta(sel, val){ var el = metaEl(sel); if(el && val != null) el.setAttribute('content', val); }
+
+  var nodes = [].slice.call(document.querySelectorAll('[data-i18n],[data-i18n-html]'));
+  var EN = {};
+  nodes.forEach(function(el){
+    var html = el.hasAttribute('data-i18n-html');
+    var k = html ? el.getAttribute('data-i18n-html') : el.getAttribute('data-i18n');
+    if(!(k in EN)) EN[k] = html ? el.innerHTML : el.textContent;
+  });
+  var META_EN = {
+    title: document.title,
+    description: getMeta('meta[name="description"]'),
+    ogTitle: getMeta('meta[property="og:title"]'),
+    ogDescription: getMeta('meta[property="og:description"]')
+  };
+
+  var DICT = { en: EN, es: ES };
+  var METAS = { en: META_EN, es: META_ES };
+  var btns = [].slice.call(document.querySelectorAll('.lang button'));
+
+  function apply(lang){
+    var d = DICT[lang] || EN;
+    nodes.forEach(function(el){
+      var html = el.hasAttribute('data-i18n-html');
+      var k = html ? el.getAttribute('data-i18n-html') : el.getAttribute('data-i18n');
+      var val = (k in d) ? d[k] : EN[k];
+      if(val == null) return;
+      if(html) el.innerHTML = val; else el.textContent = val;
+    });
+    var m = METAS[lang] || META_EN;
+    document.title = m.title;
+    setMeta('meta[name="description"]', m.description);
+    setMeta('meta[property="og:title"]', m.ogTitle);
+    setMeta('meta[property="og:description"]', m.ogDescription);
+    document.documentElement.lang = lang;
+    btns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
+    try{ localStorage.setItem('agneoLang', lang); }catch(e){}
+  }
+
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+
+  var saved = null;
+  try{ saved = localStorage.getItem('agneoLang'); }catch(e){}
+  var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  var initial = saved || (nav.indexOf('es') === 0 ? 'es' : 'en');
+  apply(initial);
+})();
+</script>
 
 <script>
 (function(){
