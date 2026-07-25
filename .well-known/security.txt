@@ -1,0 +1,5 @@
+# Security policy — contacto de seguridad para las propiedades de German Kovacevic
+Contact: mailto:hola@agneo.app
+Expires: 2027-07-24T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://agneo.app/.well-known/security.txt
