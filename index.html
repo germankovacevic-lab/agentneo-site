@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AgentNeo — Real AI agents, shipped and open-sourced</title>
-<meta name="description" content="AgentNeo builds AI agents and takes them all the way to production — six are live, working for real businesses — and open-sources the safety layer behind them. Single-operator tooling: runs locally, posts on behalf of one human.">
+<meta name="description" content="AgentNeo builds AI agents and takes them all the way to production — seven are live, working for real businesses — and open-sources the safety layer behind them. Single-operator tooling: runs locally, posts on behalf of one human.">
 <link rel="canonical" href="https://agneo.app/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://agneo.app/">
 <meta property="og:title" content="AgentNeo — Real AI agents, shipped and open-sourced">
-<meta property="og:description" content="AgentNeo builds AI agents and ships them to production — six live, working for real businesses — and open-sources the safety layer behind them.">
+<meta property="og:description" content="AgentNeo builds AI agents and ships them to production — seven live, working for real businesses — and open-sources the safety layer behind them.">
 <meta property="og:image" content="https://agneo.app/assets/banner.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="./assets/avatar-dark.png">
@@ -118,6 +118,11 @@
   .cred .wa{width:12px; height:12px; flex-shrink:0}
   .agent .go{color:var(--faint); font-family:var(--mono); transition:.18s}
   .agent:hover .go{color:var(--blue)}
+  /* featured card — Tu Mejor Empleado (la conjunción de todo) */
+  .agent.feat{border-color:rgba(58,155,230,.5); background:linear-gradient(180deg,rgba(58,155,230,.10),#0B0F18); box-shadow:0 0 0 1px rgba(58,155,230,.14), 0 12px 44px rgba(58,155,230,.10)}
+  .agent.feat::before{width:4px; background:linear-gradient(180deg,var(--blue),rgba(58,155,230,.15))}
+  .agent.feat:hover{border-color:var(--blue); background:rgba(58,155,230,.15)}
+  .feat-tag{font-family:var(--mono); font-size:.58rem; letter-spacing:.09em; text-transform:uppercase; color:var(--blue); background:rgba(58,155,230,.14); border:1px solid rgba(58,155,230,.4); padding:.12rem .45rem; border-radius:5px; vertical-align:middle; margin-left:.55rem}
   @media(max-width:520px){ .agent{flex-direction:column; align-items:flex-start; gap:.7rem} .agent .right{align-self:flex-start} }
 
   /* footer */
@@ -154,7 +159,7 @@
 
     <div class="eyebrow rise d2" data-i18n="eyebrow_hero">AI agents · in production</div>
     <h1 class="rise d2" data-i18n-html="h1">Agents that <span class="grad">actually ship</span>—<br>and ship safely.</h1>
-    <p class="lede rise d3" data-i18n="lede">AgentNeo builds AI agents and takes them all the way to production. Six are live below, working for real businesses — and we open-source the safety layer behind them.</p>
+    <p class="lede rise d3" data-i18n="lede">AgentNeo builds AI agents and takes them all the way to production. Seven are live below, working for real businesses — and we open-source the safety layer behind them.</p>
     <p class="compliance rise d3" data-i18n="compliance">The tooling behind these accounts is single-operator — runs locally, posts on behalf of one human.</p>
   </header>
 
@@ -163,6 +168,13 @@
   <section class="rise d4">
     <div class="aw-eyebrow" data-i18n="aw_eyebrow">Agents in the wild</div>
     <div class="agents">
+      <a class="agent feat" id="tme-card" href="https://yourbestemployee.us" target="_blank" rel="noopener">
+        <div>
+          <p class="nm"><span data-i18n="nm_tme">Your Best Employee</span><span class="feat-tag" data-i18n="feat_tag">Featured</span></p>
+          <p class="tl" data-i18n="tl_tme">A hireable team of 4 AI employees — reception, sales, social &amp; coordination — answering every message 24/7. The whole flota, as one team.</p>
+        </div>
+        <div class="right"><span class="badge live" data-i18n="badge_live">Live</span><span class="go">→</span></div>
+      </a>
       <a class="agent" href="https://luzvera.org" target="_blank" rel="noopener">
         <div>
           <p class="nm">Luz Vera</p>
@@ -272,9 +284,12 @@
   var ES = {
     eyebrow_hero: "Agentes de IA · en producción",
     h1: 'Agentes que <span class="grad">llegan a producción</span>—<br>y lo hacen de forma segura.',
-    lede: "AgentNeo construye agentes de IA y los lleva hasta producción. Seis están funcionando acá abajo, trabajando para negocios reales — y liberamos en código abierto la capa de seguridad que los sostiene.",
+    lede: "AgentNeo construye agentes de IA y los lleva hasta producción. Siete están funcionando acá abajo, trabajando para negocios reales — y liberamos en código abierto la capa de seguridad que los sostiene.",
     compliance: "Herramienta de un solo operador — corre local, publica en nombre de una sola persona.",
     aw_eyebrow: "Agentes en producción",
+    nm_tme: "Tu Mejor Empleado",
+    feat_tag: "Destacado",
+    tl_tme: "Un equipo de 4 empleados de IA contratables — recepción, ventas, redes y coordinación — atendiendo cada mensaje 24/7. Toda la flota, como un solo equipo.",
     tl_luz: "Nuestro agente insignia — una creadora 100% IA que desmitifica los agentes (y los vende)",
     tl_dame5: "Convierte clientes felices en reseñas de 5 estrellas — sin mover un dedo",
     tl_despachate: "Compará los regímenes de importación de Argentina, con un copiloto de IA que te guía",
@@ -307,9 +322,9 @@
   };
   var META_ES = {
     title: "AgentNeo — Agentes de IA reales, en producción y open-source",
-    description: "AgentNeo construye agentes de IA y los lleva hasta producción — seis están funcionando para negocios reales — y libera en código abierto la capa de seguridad que los sostiene. Herramienta de un solo operador: corre local, publica en nombre de una sola persona.",
+    description: "AgentNeo construye agentes de IA y los lleva hasta producción — siete están funcionando para negocios reales — y libera en código abierto la capa de seguridad que los sostiene. Herramienta de un solo operador: corre local, publica en nombre de una sola persona.",
     ogTitle: "AgentNeo — Agentes de IA reales, en producción y open-source",
-    ogDescription: "AgentNeo construye agentes de IA y los lleva a producción — seis funcionando para negocios reales — y libera en código abierto la capa de seguridad que los sostiene."
+    ogDescription: "AgentNeo construye agentes de IA y los lleva a producción — siete funcionando para negocios reales — y libera en código abierto la capa de seguridad que los sostiene."
   };
 
   function metaEl(sel){ return document.querySelector(sel); }
@@ -356,6 +371,8 @@
         ? 'AgentNeo — Agentes de IA reales, en producción y open-source'
         : 'AgentNeo — Real AI agents, shipped and open-sourced';
     }
+    var tme = document.getElementById('tme-card');
+    if(tme){ tme.href = (lang === 'es') ? 'https://tumejorempleado.com.ar' : 'https://yourbestemployee.us'; }
     btns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
     try{ localStorage.setItem('agneoLang', lang); }catch(e){}
   }
