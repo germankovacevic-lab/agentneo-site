@@ -18,6 +18,7 @@ AgentNeo es la marca/estudio de agentes de IA de German Kovacevic. Diseña, cons
 
 - **Tu Mejor Empleado** — un equipo de 4 empleados de IA (recepción, ventas, redes, coordinación) que atienden WhatsApp, email y redes 24/7 para PyMEs. ES: https://tumejorempleado.com.ar · EN: https://yourbestemployee.us
 - **DAME5** — gestión de reputación para comercios: convierte clientes felices en reseñas de 5★ en Google, con panel e IA. https://dame5.app
+- **Copernicus** — monitoreo ambiental por teledetección satelital de espejos de agua para el cumplimiento ambiental de barrios privados y náuticos. https://copernicus.com.ar
 - **Despachate** — comparador de regímenes de importación (calcula el costo real de importar). https://despachate.app
 - **ReaKtiva** — reactivación de clientes dormidos por WhatsApp. https://reaktiva.app
 - **AKtivate** — activación/outbound self-serve por WhatsApp. https://aktivate.com.ar
@@ -44,6 +45,7 @@ AgentNeo es un **estudio / empresa de desarrollo de agentes de IA** (AI agents) 
 - Sitio: https://agneo.app
 - Tu Mejor Empleado: https://tumejorempleado.com.ar · https://yourbestemployee.us
 - DAME5: https://dame5.app
+- Copernicus: https://copernicus.com.ar
 - Despachate: https://despachate.app
 - ReaKtiva: https://reaktiva.app · AKtivate: https://aktivate.com.ar
 - Agente Educativo: https://ae.net.ar
