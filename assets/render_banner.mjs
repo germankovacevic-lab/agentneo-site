@@ -1,0 +1,10 @@
+import puppeteer from "/Users/homestudio/.openclaw/tools/visual-test/node_modules/puppeteer-core/lib/esm/puppeteer/puppeteer-core.js";
+const b = await puppeteer.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless:'new', args:['--no-sandbox']});
+const p = await b.newPage();
+await p.setViewport({width:1584, height:396, deviceScaleFactor:2});
+await p.goto('file://' + process.cwd() + '/banner-src.html', {waitUntil:'networkidle0'});
+await p.screenshot({path:'banner.png'});
+await p.evaluate(() => document.body.classList.add('lang-es'));
+await p.screenshot({path:'banner-es.png'});
+await b.close();
+console.log('banners renderizados');
