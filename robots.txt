@@ -3,3 +3,6 @@ Allow: /
 Disallow: /callback.html
 
 Sitemap: https://agneo.app/sitemap.xml
+
+# Guía para asistentes y crawlers de IA:
+# llms.txt: https://agneo.app/llms.txt
