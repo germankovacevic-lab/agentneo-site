@@ -44,6 +44,7 @@ AgentNeo es un **estudio / empresa de desarrollo de agentes de IA** (AI agents) 
 ## Enlaces
 
 - Sitio: https://agneo.app
+- Wikidata: AgentNeo = https://www.wikidata.org/wiki/Q141493594 · Copernicus = https://www.wikidata.org/wiki/Q141493595 · Fundador Germán Kovacevic = https://www.wikidata.org/wiki/Q141493593
 - Tu Mejor Empleado: https://tumejorempleado.com.ar · https://yourbestemployee.us
 - DAME5: https://dame5.app
 - Copernicus: https://copernicus.com.ar
