@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Germán Kovacevic — Founder, AgentNeo</title>
+<meta name="description" content="Germán Kovacevic: founder of AgentNeo, creator of Copernicus Argentina and GEOFUEGO, independent researcher in applied remote sensing, open data with DOI. Private pilot (PPL).">
+<link rel="canonical" href="https://agneo.app/founder">
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="AgentNeo for AI assistants (llms.txt)" />
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://agneo.app/founder">
+<meta property="og:title" content="Germán Kovacevic — Founder, AgentNeo">
+<meta property="og:description" content="Founder of AgentNeo · Creator of Copernicus Argentina and GEOFUEGO · Open data with DOI · Private pilot (PPL).">
+<meta property="og:image" content="https://agneo.app/assets/german-kovacevic.jpg">
+<meta property="profile:first_name" content="Germán">
+<meta property="profile:last_name" content="Kovacevic">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="./assets/avatar-dark.png">
+<link rel="me" href="https://www.linkedin.com/in/kovacevic/">
+<link rel="me" href="https://orcid.org/0009-0007-4270-1963">
+<link rel="me" href="https://github.com/germankovacevic-lab">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0D14; --bg-2:#0F131C; --card:#0E131D;
+    --ink:#E9EDF5; --muted:#8A93A6; --faint:#5A6377;
+    --blue:#3A9BE6; --blue-deep:#1B7FC4;
+    --green:#22C55E; --green-soft:rgba(34,197,94,.14);
+    --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.05);
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Hanken Grotesk',system-ui,sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 78% -8%, rgba(58,155,230,.16), transparent 60%),
+      radial-gradient(700px 600px at 12% 8%, rgba(27,127,196,.10), transparent 55%),
+      radial-gradient(circle, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:auto,auto,23px 23px;
+    background-attachment:fixed;
+  }
+  .wrap{position:relative; z-index:1; max-width:780px; margin:0 auto; padding:0 1.6rem}
+  a{color:var(--blue); text-decoration:none}
+  a:hover{color:#5FB0EE}
+
+  .lang{position:fixed; top:14px; right:14px; z-index:5; display:flex; gap:2px; padding:3px; border:1px solid var(--line); border-radius:999px; background:rgba(14,19,29,.72); backdrop-filter:blur(8px)}
+  .lang button{appearance:none; border:0; background:transparent; color:var(--muted); padding:.28rem .62rem; border-radius:999px; cursor:pointer; letter-spacing:.06em; transition:.15s; font-family:var(--mono); font-size:.72rem}
+  .lang button:hover{color:var(--ink)}
+  .lang button.active{background:rgba(58,155,230,.18); color:#CFE6FB}
+
+  .mark{display:flex; align-items:center; gap:.85rem; padding-top:2.4rem; margin-bottom:2.8rem}
+  .mark img{width:40px; height:40px; border-radius:11px; background:#10151F; padding:5px; border:1px solid var(--line)}
+  .mark .name{font-family:'Sora',sans-serif; font-weight:700; letter-spacing:-.01em; font-size:1.05rem; color:var(--ink)}
+  .mark .name b{color:var(--blue)}
+  .mark .back{margin-left:auto; font-family:var(--mono); font-size:.76rem; color:var(--muted)}
+  .mark .back:hover{color:var(--ink)}
+
+  .eyebrow{font-family:var(--mono); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--blue); display:flex; align-items:center; gap:.6rem; margin-bottom:1.1rem}
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--blue); box-shadow:0 0 12px var(--blue)}
+  .eyebrow.g{color:var(--green)} .eyebrow.g::before{background:var(--green); box-shadow:0 0 12px var(--green)}
+
+  /* hero */
+  .hero{display:grid; grid-template-columns:168px 1fr; gap:2rem; align-items:center; margin-bottom:2.2rem}
+  .hero img{width:168px; height:168px; border-radius:22px; border:1px solid var(--line); box-shadow:0 12px 44px rgba(0,0,0,.45); display:block}
+  h1{font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(2rem,5.4vw,2.9rem); line-height:1.05; letter-spacing:-.03em; margin:0 0 .7rem}
+  h1 .grad{background:linear-gradient(100deg,#fff 20%,var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .tagline{font-size:1.06rem; color:#C3CAD8; margin:0 0 1rem; max-width:52ch}
+  .ids{display:flex; flex-wrap:wrap; gap:.45rem; font-family:var(--mono); font-size:.74rem}
+  .ids a{padding:.26rem .62rem; border-radius:999px; border:1px solid var(--line); color:var(--muted); display:inline-flex; align-items:center; gap:.4rem; transition:.15s}
+  .ids a:hover{border-color:var(--blue); color:var(--ink)}
+  .ids svg{width:11px; height:11px; opacity:.85}
+  @media(max-width:560px){ .hero{grid-template-columns:1fr; gap:1.2rem} .hero img{width:128px; height:128px} }
+
+  .lede{font-size:1.08rem; color:#C3CAD8; max-width:62ch; margin:0 0 1rem}
+  .fine{font-family:var(--mono); font-size:.82rem; color:var(--faint); border-left:2px solid var(--line); padding-left:.9rem; max-width:60ch}
+  .rule{height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent); margin:3rem 0}
+
+  /* work cards */
+  .agents{display:grid; gap:.9rem}
+  .agent{position:relative; display:flex; align-items:center; justify-content:space-between; gap:1.2rem; background:linear-gradient(180deg,var(--card),#0B0F18); border:1px solid var(--line); border-radius:14px; padding:1.1rem 1.3rem; transition:.18s; color:var(--ink)}
+  .agent::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,var(--blue),transparent)}
+  .agent:hover{border-color:var(--blue); transform:translateY(-2px); background:rgba(58,155,230,.06)}
+  .agent .nm{font-family:'Sora',sans-serif; font-weight:700; font-size:1.08rem; letter-spacing:-.01em; margin:0 0 .15rem; color:var(--ink)}
+  .agent .tl{color:#BFC7D6; font-size:.92rem; margin:0}
+  .agent .right{flex-shrink:0}
+  .badge{font-family:var(--mono); font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; padding:.2rem .55rem; border-radius:6px; white-space:nowrap; color:#7BE8A6; background:var(--green-soft); border:1px solid rgba(34,197,94,.3)}
+  .badge.os{color:#8FD0F5; background:rgba(58,155,230,.13); border:1px solid rgba(58,155,230,.36)}
+  .cred{display:inline-flex; align-items:center; gap:.42rem; margin-top:.5rem; font-family:var(--mono); font-size:.66rem; letter-spacing:.02em; color:#EFC169; background:rgba(217,164,65,.10); border:1px solid rgba(217,164,65,.35); padding:.2rem .55rem; border-radius:6px}
+  @media(max-width:520px){ .agent{flex-direction:column; align-items:flex-start; gap:.7rem} }
+
+  /* open science list */
+  .card{position:relative; background:linear-gradient(180deg,var(--card),#0B0F18); border:1px solid var(--line); border-radius:18px; padding:1.6rem 1.7rem 1.5rem; overflow:hidden}
+  .card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,var(--green),transparent)}
+  .card h2{font-family:'Sora',sans-serif; font-weight:700; font-size:1.3rem; letter-spacing:-.02em; margin:.1rem 0 .5rem}
+  .card .tag{font-family:var(--mono); font-size:.72rem; color:var(--green); background:var(--green-soft); border:1px solid rgba(34,197,94,.25); padding:.12rem .5rem; border-radius:6px; vertical-align:middle; margin-left:.4rem}
+  .card p{color:#BFC7D6; margin:.5rem 0}
+  .od{margin:.4rem 0 .6rem; padding-left:1.1rem; color:#BFC7D6; font-size:.92rem; line-height:1.65}
+  .od a{color:var(--ink)} .od a:hover{color:var(--green)}
+
+  /* timeline */
+  .tl-list{list-style:none; margin:0; padding:0; border-left:1px solid var(--line); margin-left:.4rem}
+  .tl-list li{position:relative; padding:0 0 1.15rem 1.4rem}
+  .tl-list li::before{content:""; position:absolute; left:-5px; top:.5rem; width:9px; height:9px; border-radius:50%; background:var(--bg); border:2px solid var(--blue)}
+  .tl-list li.now::before{background:var(--green); border-color:var(--green); box-shadow:0 0 10px var(--green)}
+  .tl-list .when{font-family:var(--mono); font-size:.72rem; color:var(--faint); letter-spacing:.04em}
+  .tl-list .role{font-family:'Sora',sans-serif; font-weight:600; font-size:1rem; margin:.1rem 0 .1rem; color:var(--ink)}
+  .tl-list .role span{color:var(--muted); font-weight:500}
+  .tl-list .what{color:#BFC7D6; font-size:.9rem; margin:0}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:1.4rem}
+  @media(max-width:620px){ .two{grid-template-columns:1fr} }
+  .edu{list-style:none; margin:0; padding:0; color:#BFC7D6; font-size:.92rem}
+  .edu li{padding:.35rem 0; border-bottom:1px solid var(--line-2)}
+  .edu b{color:var(--ink); font-weight:600}
+
+  footer{margin:3.4rem 0 4rem; display:flex; flex-wrap:wrap; gap:1rem 1.6rem; align-items:center; font-size:.9rem; color:var(--muted)}
+  footer a{color:var(--muted)} footer a:hover{color:var(--ink)}
+  footer .dot{width:3px; height:3px; border-radius:50%; background:var(--faint)}
+  footer .mail{font-family:var(--mono); font-size:.82rem; margin-left:auto}
+
+  .rise{opacity:0; transform:translateY(14px); animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1; transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}.d4{animation-delay:.34s}.d5{animation-delay:.46s}.d6{animation-delay:.58s}
+  @media (prefers-reduced-motion:reduce){.rise{animation:none; opacity:1; transform:none}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","@id":"https://agneo.app/founder#page","url":"https://agneo.app/founder","name":"Germán Kovacevic — Founder, AgentNeo","inLanguage":["en","es"],"isPartOf":{"@id":"https://agneo.app/#website"},"dateModified":"2026-10-24","mainEntity":{"@type":"Person","@id":"https://agneo.app/#founder","name":"Germán Kovacevic","givenName":"Germán","familyName":"Kovacevic","alternateName":["German Kovacevic","Germán Ricardo Kovacevic","Kovacevic, Germán Ricardo","Kovacevic, G. R.","G. R. Kovacevic"],"url":"https://agneo.app/founder","image":{"@type":"ImageObject","url":"https://agneo.app/assets/german-kovacevic.jpg","contentUrl":"https://agneo.app/assets/german-kovacevic.jpg","width":800,"height":800,"caption":"Germán Kovacevic, fundador de AgentNeo y creador de Copernicus y GEOFUEGO"},"description":"Investigador independiente y desarrollador argentino en teledetección aplicada, análisis ambiental y modelización de riesgos, con trayectoria en sistemas e inteligencia artificial; fundador de AgentNeo; piloto privado de avión (PPA).","jobTitle":"Founder, AgentNeo · Independent researcher and developer in applied remote sensing","nationality":{"@type":"Country","name":"Argentina"},"homeLocation":{"@type":"Place","name":"Buenos Aires, Argentina"},"worksFor":{"@id":"https://agneo.app/#org"},"alumniOf":[{"@type":"EducationalOrganization","name":"Escuela Técnica Ing. Luis Ángel Huergo"},{"@type":"CollegeOrUniversity","name":"Universidad Católica"},{"@type":"CollegeOrUniversity","name":"Universidad Tecnológica Nacional","sameAs":"https://www.wikidata.org/wiki/Q3232206"},{"@type":"CollegeOrUniversity","name":"Universidad Nacional del Delta","url":"https://undelta.edu.ar/"}],"hasOccupation":[{"@type":"Occupation","name":"Independent researcher in applied remote sensing"},{"@type":"Occupation","name":"Software and site reliability engineer"},{"@type":"Occupation","name":"Private pilot (PPL)"}],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Private Pilot Licence (PPL / PPA)","credentialCategory":"licence"},"award":"1st Prize, CarpinchIA 2026 — Universidad Nacional del Delta (Copernicus)","knowsAbout":["teledetección","observación de la Tierra","análisis ambiental","modelización de riesgos","riesgo de incendios","calidad del agua","hidrología","inteligencia artificial","agentes de IA","AIOps"],"knowsLanguage":["es","en"],"identifier":[{"@type":"PropertyValue","propertyID":"ORCID","value":"0009-0007-4270-1963"},{"@type":"PropertyValue","propertyID":"Wikidata","value":"Q141493593"}],"sameAs":["https://www.wikidata.org/wiki/Q141493593","https://orcid.org/0009-0007-4270-1963","https://www.linkedin.com/in/kovacevic/","https://github.com/germankovacevic-lab","https://www.instagram.com/thevippilot/","https://www.tiktok.com/@thevippilot","https://www.youtube.com/@thevippilot"],"email":"mailto:hola@agneo.app"}}</script>
+</head>
+<body>
+
+<div class="lang" role="group" aria-label="Language / Idioma">
+  <button type="button" data-lang="en" aria-label="English">EN</button>
+  <button type="button" data-lang="es" aria-label="Español">ES</button>
+</div>
+
+<div class="wrap">
+
+  <div class="mark rise d1">
+    <img src="./assets/avatar-dark.png" alt="AgentNeo logo">
+    <a class="name" href="./">Agent<b>Neo</b></a>
+    <a class="back" href="./" data-i18n="back">agneo.app</a>
+  </div>
+
+  <header>
+    <div class="eyebrow rise d2" data-i18n="eyebrow">Founder</div>
+    <div class="hero rise d2">
+      <img src="./assets/german-kovacevic.jpg" alt="Germán Kovacevic" width="168" height="168">
+      <div>
+        <h1>Germán <span class="grad">Kovacevic</span></h1>
+        <p class="tagline" data-i18n="tagline">Founder, AgentNeo · Creator of Copernicus Argentina and GEOFUEGO · Open data with DOI · Private pilot (PPL)</p>
+        <div class="ids">
+          <a href="https://www.linkedin.com/in/kovacevic/" rel="me"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M6.9 9.5h2.5V18H6.9zM8.1 5.5a1.45 1.45 0 1 1 0 2.9 1.45 1.45 0 0 1 0-2.9zM11 9.5h2.4v1.2c.4-.7 1.3-1.4 2.7-1.4 2.8 0 3.3 1.8 3.3 4.2V18h-2.5v-3.9c0-.9 0-2.1-1.3-2.1s-1.5 1-1.5 2V18H11z"/></svg>LinkedIn</a>
+          <a href="https://orcid.org/0009-0007-4270-1963" rel="me"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#A6CE39"/><path fill="#fff" d="M8.4 7.2h1.6v9.6H8.4zM9.2 4.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 2.7h3.3c3.2 0 4.6 2.3 4.6 4.8 0 2.6-2 4.8-4.6 4.8h-3.3zm1.6 1.4v6.8h1.6c2.2 0 3-1.7 3-3.4 0-1.6-.9-3.4-3-3.4z"/></svg>ORCID</a>
+          <a href="https://www.wikidata.org/wiki/Q141493593">Wikidata Q141493593</a>
+          <a href="https://github.com/germankovacevic-lab" rel="me">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <p class="lede rise d3" data-i18n="lede">I build production AI agents and satellite-data products for environmental monitoring and risk. The methods, the data and the safety layer behind them are published in the open.</p>
+    <p class="fine rise d3" data-i18n="fine">Previously: 20 years of engineering and production-support roles for Fortune 100 systems at JPMorgan, Citi, Avaya, CA Technologies and Verizon Business.</p>
+  </header>
+
+  <div class="rule rise d3"></div>
+
+  <section class="rise d4">
+    <div class="eyebrow" data-i18n="work_eyebrow">What I build</div>
+    <div class="agents">
+      <a class="agent" href="https://copernicus.com.ar">
+        <div>
+          <p class="nm">Copernicus Argentina</p>
+          <p class="tl" data-i18n="tl_copernicus">Satellite Earth observation of the territory: water, rivers, land, fire and heat, measured from space for governments, companies and gated communities. Live river levels at 45 gauges, storm-surge alerts for the Río de la Plata, nationwide fire hotspots.</p>
+          <span class="cred">🏆 <span data-i18n="award">1st Prize — CarpinchIA 2026 · Universidad Nacional del Delta</span></span>
+        </div>
+        <div class="right"><span class="badge" data-i18n="badge_live">Live</span></div>
+      </a>
+      <a class="agent" href="https://geofuego.com.ar">
+        <div>
+          <p class="nm">GEOFUEGO</p>
+          <p class="tl" data-i18n="tl_geofuego">Argentina's wildfire map: satellite hotspots every 3 hours and the GeoFuego Index (GFI), a seasonal fire-risk indicator with a published, DOI-registered method.</p>
+        </div>
+        <div class="right"><span class="badge" data-i18n="badge_live">Live</span></div>
+      </a>
+      <a class="agent" href="./">
+        <div>
+          <p class="nm">AgentNeo</p>
+          <p class="tl" data-i18n="tl_agneo">The studio: AI agents taken all the way to production (Your Best Employee, SENT, Luz Vera), NEO Portable as the model-agnostic runtime, and Agent Audit Gate as the open-source safety layer.</p>
+        </div>
+        <div class="right"><span class="badge os" data-i18n="badge_os">Studio</span></div>
+      </a>
+    </div>
+  </section>
+
+  <div class="rule rise d4"></div>
+
+  <section class="rise d5">
+    <div class="eyebrow g" data-i18n="os_eyebrow">Open science</div>
+    <div class="card">
+      <h2><span data-i18n="os_h">Datasets and methods with DOI</span> <span class="tag">CC BY 4.0 · Zenodo · Hugging Face</span></h2>
+      <p data-i18n="os_p">Independent research in applied remote sensing and risk modelling. Everything below can be cited, reproduced and audited.</p>
+      <ul class="od">
+        <li><a href="https://doi.org/10.5281/zenodo.23539159" data-i18n="od_parana_hist">Paraná River daily levels 1900–2026</a></li>
+        <li><a href="https://doi.org/10.5281/zenodo.23600160" data-i18n="od_nino">El Niño 2026 — October flood, 32 gauges on the Paraná, Iguazú and Uruguay</a></li>
+        <li><a href="https://doi.org/10.5281/zenodo.23417060" data-i18n="od_lagunas">Pampean lagoons 2018–2026 — satellite trophic state of 20 lakes</a></li>
+        <li><a href="https://doi.org/10.5281/zenodo.23404303" data-i18n="od_atacama">Atacama flowering desert 2026 — satellite footprint</a></li>
+        <li><a href="https://doi.org/10.5281/zenodo.23531745" data-i18n="od_ibicuy">Ibicuy — sand-extraction footprint 2017–2026</a></li>
+        <li><a href="https://doi.org/10.5281/zenodo.23017740" data-i18n="od_gfi">GeoFuego Index (GFI) — method package</a></li>
+      </ul>
+      <p class="fine">ORCID <a href="https://orcid.org/0009-0007-4270-1963">0009-0007-4270-1963</a> · <a href="https://huggingface.co/copernicus-argentina">huggingface.co/copernicus-argentina</a></p>
+    </div>
+  </section>
+
+  <div class="rule rise d5"></div>
+
+  <section class="rise d6">
+    <div class="eyebrow" data-i18n="tr_eyebrow">Track record</div>
+    <ul class="tl-list">
+      <li class="now"><div class="when">2026 —</div><p class="role" data-i18n-html="r_agneo_t">Founder <span>· AgentNeo</span></p><p class="what" data-i18n="r_agneo">Applied remote sensing, environmental monitoring, AI agents in production. Creator of Copernicus Argentina and GEOFUEGO.</p></li>
+      <li class="now"><div class="when">2023 —</div><p class="role" data-i18n-html="r_forte_t">Senior Support Engineer, AIOps &amp; Production <span>· Forte Group</span></p><p class="what" data-i18n="r_forte">DFIN Venue: virtual data rooms for Fortune 1000 companies, investment banks and government agencies. Software observability, AI and agentic certification.</p></li>
+      <li><div class="when">2020 — 2023</div><p class="role" data-i18n-html="r_virtana_t">Senior Technical Support Engineer <span>· Virtana</span></p><p class="what" data-i18n="r_virtana">Hybrid-cloud infrastructure monitoring and cloud cost management across AWS, Azure and GCP.</p></li>
+      <li><div class="when">2017 — 2020</div><p class="role" data-i18n-html="r_jpm_t">Senior Application Support Specialist <span>· JPMorgan Chase</span></p><p class="what" data-i18n="r_jpm">Corporate &amp; Investment Bank, production management. Subject-matter expert in monitoring tools for daily-trading backends.</p></li>
+      <li><div class="when">2016 — 2017</div><p class="role" data-i18n-html="r_citi_t">Application Support Specialist <span>· Citi</span></p><p class="what" data-i18n="r_citi">Global Production Assurance, L3. Subject-matter expert, Oracle General Ledger.</p></li>
+      <li><div class="when">2013 — 2016</div><p class="role" data-i18n-html="r_tdi_t">Senior CA Clarity PPM Technical Consultant <span>· TDI SA</span></p><p class="what" data-i18n="r_tdi">Clarity PPM implementations and upgrades at Banco Itaú, Telecom Argentina and Technisys.</p></li>
+      <li><div class="when">2010 — 2012</div><p class="role" data-i18n-html="r_avaya_t">Senior Technical Support Engineer <span>· Avaya</span></p><p class="what" data-i18n="r_avaya">Global Support Services, IVR and Voice Portal backbone team. Backbone Award 2010, Client Choice Award 2012.</p></li>
+      <li><div class="when">2007 — 2010</div><p class="role" data-i18n-html="r_ca_t">Senior Support Engineer <span>· CA Technologies</span></p><p class="what" data-i18n="r_ca">Technical support for CA Clarity PPM installations.</p></li>
+      <li><div class="when">2004 — 2007</div><p class="role" data-i18n-html="r_vz_t">Senior System Analyst <span>· Verizon Business</span></p><p class="what" data-i18n="r_vz">Production support coordinator for platinum applications; long-distance circuit provisioning.</p></li>
+    </ul>
+
+    <div class="two" style="margin-top:1.4rem">
+      <div>
+        <div class="eyebrow" data-i18n="edu_eyebrow">Education</div>
+        <ul class="edu">
+          <li><b>Escuela Técnica Ing. Luis Ángel Huergo</b></li>
+          <li><b>Universidad Católica</b></li>
+          <li><b>Universidad Tecnológica Nacional</b></li>
+          <li><b>Universidad Nacional del Delta</b></li>
+        </ul>
+      </div>
+      <div>
+        <div class="eyebrow" data-i18n="fly_eyebrow">Flying</div>
+        <ul class="edu">
+          <li><b data-i18n="fly_ppl">Private Pilot Licence (PPL)</b></li>
+          <li><a href="https://www.instagram.com/thevippilot/" rel="me">Instagram @thevippilot</a></li>
+          <li><a href="https://www.youtube.com/@thevippilot" rel="me">YouTube @thevippilot</a></li>
+          <li><a href="https://www.tiktok.com/@thevippilot" rel="me">TikTok @thevippilot</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rise d6">
+    <a href="./">AgentNeo</a>
+    <span class="dot"></span>
+    <a href="https://www.linkedin.com/company/agentneo/">LinkedIn</a>
+    <span class="dot"></span>
+    <a href="./privacy.html" data-i18n="foot_privacy">Privacy</a>
+    <span class="dot"></span>
+    <a href="./terms.html" data-i18n="foot_terms">Terms</a>
+    <a class="mail" href="mailto:hola@agneo.app">hola@agneo.app</a>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var ES = {
+    back: "agneo.app",
+    eyebrow: "Fundador",
+    tagline: "Fundador de AgentNeo · Creador de Copernicus Argentina y GEOFUEGO · Datos abiertos con DOI · Piloto Privado de Avión (PPA)",
+    lede: "Construyo agentes de IA en producción y productos de datos satelitales para monitoreo ambiental y riesgo. Los métodos, los datos y la capa de seguridad que los sostienen se publican en abierto.",
+    fine: "Antes: 20 años de ingeniería y soporte de producción de sistemas Fortune 100 en JPMorgan, Citi, Avaya, CA Technologies y Verizon Business.",
+    work_eyebrow: "Lo que construyo",
+    tl_copernicus: "Observación satelital del territorio: agua, río, suelo, fuego y calor, medidos desde el espacio para gobiernos, empresas y barrios. Altura del río en vivo en 45 escalas, alerta de sudestadas para el Río de la Plata, focos de calor de todo el país.",
+    award: "1er Premio — CarpinchIA 2026 · Universidad Nacional del Delta",
+    tl_geofuego: "El mapa de incendios de Argentina: focos de calor satelitales cada 3 horas e Índice GeoFuego (GFI), indicador estacional de riesgo de fuego con método publicado y DOI.",
+    tl_agneo: "El estudio: agentes de IA llevados hasta producción (Tu Mejor Empleado, SENT, Luz Vera), NEO Portable como runtime agnóstico del modelo y Agent Audit Gate como capa de seguridad open source.",
+    badge_live: "En vivo",
+    badge_os: "Estudio",
+    os_eyebrow: "Ciencia abierta",
+    os_h: "Datasets y métodos con DOI",
+    os_p: "Investigación independiente en teledetección aplicada y modelización de riesgos. Todo lo de abajo se puede citar, reproducir y auditar.",
+    od_parana_hist: "Alturas diarias del río Paraná 1900–2026",
+    od_nino: "El Niño 2026 — crecida de octubre, 32 escalas del Paraná, el Iguazú y el Uruguay",
+    od_lagunas: "Lagunas pampeanas 2018–2026 — estado trófico satelital de 20 lagunas",
+    od_atacama: "Desierto Florido de Atacama 2026 — huella satelital",
+    od_ibicuy: "Ibicuy — huella de la extracción de arena 2017–2026",
+    od_gfi: "Índice GeoFuego (GFI) — paquete de método",
+    tr_eyebrow: "Trayectoria",
+    r_agneo_t: "Fundador <span>· AgentNeo</span>",
+    r_agneo: "Teledetección aplicada, monitoreo ambiental, agentes de IA en producción. Creador de Copernicus Argentina y GEOFUEGO.",
+    r_forte_t: "Senior Support Engineer, AIOps y Producción <span>· Forte Group</span>",
+    r_forte: "DFIN Venue: data rooms virtuales para empresas Fortune 1000, bancos de inversión y organismos públicos. Observabilidad de software, certificación en IA y agentes.",
+    r_virtana_t: "Senior Technical Support Engineer <span>· Virtana</span>",
+    r_virtana: "Monitoreo de infraestructura híbrida y gestión de costos de nube en AWS, Azure y GCP.",
+    r_jpm_t: "Senior Application Support Specialist <span>· JPMorgan Chase</span>",
+    r_jpm: "Banca corporativa y de inversión, gestión de producción. Especialista en herramientas de monitoreo de backends de trading diario.",
+    r_citi_t: "Application Support Specialist <span>· Citi</span>",
+    r_citi: "Global Production Assurance, L3. Especialista en Oracle General Ledger.",
+    r_tdi_t: "Consultor técnico senior CA Clarity PPM <span>· TDI SA</span>",
+    r_tdi: "Implementaciones y upgrades de Clarity PPM en Banco Itaú, Telecom Argentina y Technisys.",
+    r_avaya_t: "Senior Technical Support Engineer <span>· Avaya</span>",
+    r_avaya: "Global Support Services, equipo backbone de IVR y Voice Portal. Backbone Award 2010, Client Choice Award 2012.",
+    r_ca_t: "Senior Support Engineer <span>· CA Technologies</span>",
+    r_ca: "Soporte técnico de instalaciones de CA Clarity PPM.",
+    r_vz_t: "Senior System Analyst <span>· Verizon Business</span>",
+    r_vz: "Coordinador de soporte de producción de aplicaciones platinum; provisión de circuitos de larga distancia.",
+    edu_eyebrow: "Formación",
+    fly_eyebrow: "Vuelo",
+    fly_ppl: "Piloto Privado de Avión (PPA)",
+    foot_privacy: "Privacidad",
+    foot_terms: "Términos"
+  };
+  var META_ES = {
+    title: "Germán Kovacevic — Fundador de AgentNeo",
+    description: "Germán Kovacevic: fundador de AgentNeo, creador de Copernicus Argentina y GEOFUEGO, investigador independiente en teledetección aplicada, datos abiertos con DOI. Piloto Privado de Avión (PPA).",
+    ogTitle: "Germán Kovacevic — Fundador de AgentNeo",
+    ogDescription: "Fundador de AgentNeo · Creador de Copernicus Argentina y GEOFUEGO · Datos abiertos con DOI · Piloto Privado de Avión (PPA)."
+  };
+  function metaEl(sel){ return document.querySelector(sel); }
+  function getMeta(sel){ var el = metaEl(sel); return el ? el.getAttribute('content') : null; }
+  function setMeta(sel, val){ var el = metaEl(sel); if(el && val != null) el.setAttribute('content', val); }
+  var nodes = [].slice.call(document.querySelectorAll('[data-i18n],[data-i18n-html]'));
+  var EN = {};
+  nodes.forEach(function(el){
+    var html = el.hasAttribute('data-i18n-html');
+    var k = html ? el.getAttribute('data-i18n-html') : el.getAttribute('data-i18n');
+    if(!(k in EN)) EN[k] = html ? el.innerHTML : el.textContent;
+  });
+  var META_EN = { title: document.title, description: getMeta('meta[name="description"]'), ogTitle: getMeta('meta[property="og:title"]'), ogDescription: getMeta('meta[property="og:description"]') };
+  var DICT = { en: EN, es: ES }, METAS = { en: META_EN, es: META_ES };
+  var btns = [].slice.call(document.querySelectorAll('.lang button'));
+  function apply(lang){
+    var d = DICT[lang] || EN;
+    nodes.forEach(function(el){
+      var html = el.hasAttribute('data-i18n-html');
+      var k = html ? el.getAttribute('data-i18n-html') : el.getAttribute('data-i18n');
+      var val = (k in d) ? d[k] : EN[k];
+      if(val == null) return;
+      if(html) el.innerHTML = val; else el.textContent = val;
+    });
+    var m = METAS[lang] || META_EN;
+    document.title = m.title;
+    setMeta('meta[name="description"]', m.description);
+    setMeta('meta[property="og:title"]', m.ogTitle);
+    setMeta('meta[property="og:description"]', m.ogDescription);
+    document.documentElement.lang = lang;
+    btns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
+    try{ localStorage.setItem('agneoLang', lang); }catch(e){}
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); }); });
+  var saved = null; try{ saved = localStorage.getItem('agneoLang'); }catch(e){}
+  var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  apply(saved || (nav.indexOf('es') === 0 ? 'es' : 'en'));
+})();
+</script>
+</body>
+</html>
