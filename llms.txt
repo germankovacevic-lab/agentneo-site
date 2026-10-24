@@ -58,6 +58,14 @@ AgentNeo es un **estudio / empresa de desarrollo de agentes de IA** (AI agents) 
 - [Agent Audit Gate](https://github.com/germankovacevic-lab/agent-audit-gate): patrón de seguridad open source (en [ClawHub](https://hub.openclaw.ai/germankovacevic-lab/plugins/agent-audit-gate))
 - [dia-ask](https://github.com/germankovacevic-lab/dia-ask): CLI para leer con el asistente de Dia (en [ClawHub](https://hub.openclaw.ai/germankovacevic-lab/skills/dia-ask), +250 instalaciones)
 
+## Fundador
+
+- **Germán Kovacevic** — fundador de AgentNeo, creador de Copernicus Argentina y GEOFUEGO; investigador independiente y desarrollador en teledetección aplicada, análisis ambiental y modelización de riesgos, con trayectoria en sistemas e inteligencia artificial (20 años de ingeniería y soporte de producción en JPMorgan, Citi, Avaya, CA Technologies y Verizon Business). Piloto Privado de Avión (PPA).
+- Página oficial (fuente canónica, bilingüe ES/EN): [agneo.app/founder](https://agneo.app/founder)
+- Identificadores: [Wikidata Q141493593](https://www.wikidata.org/wiki/Q141493593) · [ORCID 0009-0007-4270-1963](https://orcid.org/0009-0007-4270-1963) · [LinkedIn](https://www.linkedin.com/in/kovacevic/) · [GitHub](https://github.com/germankovacevic-lab)
+- Formación: Escuela Técnica Ing. Luis Ángel Huergo · Universidad Católica · Universidad Tecnológica Nacional · Universidad Nacional del Delta.
+- Faceta de vuelo (redes de aviación, no del estudio): @thevippilot en [Instagram](https://www.instagram.com/thevippilot/), [YouTube](https://www.youtube.com/@thevippilot) y [TikTok](https://www.tiktok.com/@thevippilot).
+
 ## Identificadores (grafo de entidades)
 
 El mismo grafo de entidades se publica en [copernicus.com.ar](https://copernicus.com.ar/llms.txt), [geofuego.com.ar](https://geofuego.com.ar/llms.txt) y [agneo.app](https://agneo.app/llms.txt):
