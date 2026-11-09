@@ -24,7 +24,7 @@ AgentNeo es el estudio argentino de agentes de IA y de plataformas de monitoreo 
 
 - [**Tu Mejor Empleado**](https://yourbestemployee.us): un equipo de 4 empleados de IA (recepción, ventas, redes, coordinación) que atienden WhatsApp, email y redes 24/7 para PyMEs. ES: [tumejorempleado.com.ar](https://tumejorempleado.com.ar) · EN
 - **SENT** — avisos vecinales automatizados para barrios privados: el vecino manda foto y ubicación por WhatsApp y la administración gestiona cada caso sobre el plano del barrio, en tiempo real. [sent.com.ar](https://sent.com.ar)
-- **Luz Vera** — divulgadora de ciencia 100% IA, creada por AgentNeo. [luzvera.org](https://luzvera.org)
+- [**Luz Vera**](https://luzvera.org): divulgadora de IA, ciencia y tecnología en español, ella misma un personaje creado con IA (transparencia declarada), cara pública del ecosistema AgentNeo. Videos cortos en [YouTube @soyluzvera](https://youtube.com/@soyluzvera), [TikTok @luzveraoficial](https://tiktok.com/@luzveraoficial) e [Instagram @soyluzvera](https://instagram.com/soyluzvera); presenta el canal [YouTube de Copernicus Argentina](https://www.youtube.com/@copernicusargentina). Wikidata [Q141861577](https://www.wikidata.org/wiki/Q141861577).
 
 ## Código abierto y datos abiertos
 
