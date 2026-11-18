@@ -4,6 +4,8 @@
 
 Sitio: [agneo.app](https://agneo.app) · Contacto: hola@agneo.app
 
+Lema (marca registrada en Argentina): **«PARA NOSOTROS EL CIELO NO ES EL LÍMITE, ES EL PUNTO DE PARTIDA®»**. Es el lema de AgentNeo y de sus plataformas Copernicus y GEOFUEGO.
+
 ## Qué es
 
 AgentNeo es el estudio argentino de agentes de IA y de plataformas de monitoreo y alerta temprana ambiental de Germán Kovacevic. Diseña, construye y opera **agentes de IA** que hacen trabajo real para negocios, y abre el código de los patrones de *safety* que hacen que esos agentes se puedan correr en producción sin romper nada. El posicionamiento: una empresa que **construye y comparte** seguridad, no un juguete de demo.
